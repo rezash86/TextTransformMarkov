@@ -1,4 +1,4 @@
-package com.markov.textTransform;
+package com.markov.textTransform.utils;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.markov.textTransform.model.TextInfo;
 
 /**
  * This class is being used for doing some utility actions
@@ -45,7 +47,7 @@ public class TextUtils {
 
 		try {
 
-			System.out.println("Enter the path of your text file");
+			System.out.println("Enter the path of your text file [you can use randomText.txt as an example]");
 			String path = reader.nextLine();
 			ValidationInput.getInstance().validatePath(path);
 

@@ -1,4 +1,4 @@
-package com.markov.textTransform;
+package com.markov.textTransform.process;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
@@ -21,6 +21,9 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
+
+import com.markov.textTransform.model.TextInfo;
+import com.markov.textTransform.process.TextProcess;
 
 
 @RunWith(MockitoJUnitRunner.class)

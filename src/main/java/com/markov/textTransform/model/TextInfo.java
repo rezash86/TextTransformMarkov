@@ -1,4 +1,4 @@
-package com.markov.textTransform;
+package com.markov.textTransform.model;
 
 /**
  * This class represent the attributes of 

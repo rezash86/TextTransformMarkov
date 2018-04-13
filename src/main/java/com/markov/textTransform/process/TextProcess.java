@@ -1,4 +1,4 @@
-package com.markov.textTransform;
+package com.markov.textTransform.process;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,6 +11,9 @@ import java.util.Random;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.markov.textTransform.model.TextInfo;
+import com.markov.textTransform.utils.TextUtils;
 
 /**
  * This class does the process in the input text file

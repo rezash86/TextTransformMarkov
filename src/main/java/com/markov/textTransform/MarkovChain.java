@@ -5,14 +5,16 @@ import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.markov.textTransform.model.TextInfo;
+import com.markov.textTransform.process.TextProcess;
+import com.markov.textTransform.utils.TextUtils;
+
 public class MarkovChain {
 
 	public static final Logger logger = LoggerFactory.getLogger(MarkovChain.class);
 	
 	// The beginning of the project
 	public static void main(String[] args) {
-
-		
 		
 		try {
 			TextInfo input = TextUtils.getInput();

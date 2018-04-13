@@ -1,7 +1,9 @@
-package com.markov.textTransform;
+package com.markov.textTransform.utils;
 
 import java.io.File;
 import java.io.IOException;
+
+import com.markov.textTransform.model.TextInfo;
 
 /**
  * This class is used for validation of the input 
