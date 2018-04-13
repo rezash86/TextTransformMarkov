@@ -8,10 +8,13 @@ import static org.mockito.Mockito.spy;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -61,6 +64,10 @@ public class TextProcessMicroTest {
 		assertEquals(generatePrefixes.get("tired of"), prefix);
 	}
 	
+	@After
+	public void end() throws IOException {
+		Files.deleteIfExists(Paths.get("newfile.txt"));
+	}
 	
 	private void createFile() throws IOException {
 		File file = new File("newfile.txt");

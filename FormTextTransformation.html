@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Transfor a file with Markov Chain algorithm.</title>
+  <style>
+	label {
+       cursor: default;
+	}
+	#infoLbl {
+		color: red;
+		text-align: center;
+	}
+	#defaultTag {
+		color: black;
+		text-align: center;
+	}
+	
+	input[type=text], select {
+    
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+
+</head>
+<body>
+
+  <div>
+        <p>
+		<h2 id="infoLbl">
+			For Transforming a text file with Markov Chain algorithm, please choose a text file
+		</h2>
+		</p>
+     </div>
+	 
+	 <Form>
+	 
+	 
+    <div id="defaultTag">
+	  <input type="file" name="file" id="defaultTag" onclick="choosenFile()" required placeholder="choose a file"/>	  
+    </div>
+	<div id="defaultTag">
+       <label id = "lblkeySize" for="keySize"> Key Size</label>
+	   <select id= "keySize" required placeholder="choose a number" onchange="keySizeSelected()">
+		  <option value="">Make a selection</option>
+		  <option value="1">1</option>
+		  <option value="2">2</option>
+		  <option value="3">3</option>
+		  <option value="4">4</option>
+		  <option value="5">5</option>
+		</select>
+		&nbsp;
+		&nbsp;
+	   <label id = "lbloutputSize" for="outputsize"> Output size</label>
+	   <input type="text" id ="outputsize" name="outputsize" required placeholder="Write Output Size Number"><br>
+    </div>
+		
+	<div id="defaultTag">
+		<label id = "lblsuffix" for="suffixes" style="visibility:hidden"> Choose One of the prefix/suffix combinations </label>
+		&nbsp;
+		&nbsp;
+		<select id= "suffixes" required placeholder="choose a prefix" style="visibility:hidden">
+		  <option value="">Make a selection</option>
+		  <option value="val1">prefix1 --> suffix 1</option>
+		  <option value="val2">prefix2 --> suffix 2</option>
+		  <option value="val3">prefix3 --> suffix 3</option>
+		  <option value="val4">prefix4 --> suffix 4</option>
+		  <option value="val5">prefix5 --> suffix 5</option>
+		</select>
+	</div>
+		
+	 
+	<div id="defaultTag">
+		<table>
+			<TR>
+				<TD><label id = "lblResult" for="resultTextArea"> Result text: </label></TD>
+				<TD> 
+					<textarea rows="7" cols = "150" id="resultTextArea">
+					</textarea>
+				</TD>
+			</TR>
+		</table>
+	 
+      
+    </div>
+	 
+	 <input type="hidden" id="filechosen" value="false">
+
+    <div id="defaultTag">
+      <input type="submit" value="Click to tranform your text file"  onclick="submitButtonClicked()" />
+    </div>
+  
+  </form>
+  <script>
+
+function choosenFile() {
+	document.getElementById("filechosen").value = "true";
+};
+
+function keySizeSelected() {
+			
+    document.getElementById("lblsuffix").style.visibility = "visible";
+	document.getElementById("suffixes").style.visibility = "visible";
+	return true;
+}
+
+function submitButtonClicked() {
+	if( document.getElementById("suffixes").style.visibility == "visible" && document.getElementById("filechosen").value == "true"){
+		
+		document.getElementById("resultTextArea").style.visibility = "visible";
+		document.getElementById("lblResult").style.visibility = "visible";
+	}
+}
+
+</script>
+</body>
+</html>
