@@ -15,27 +15,27 @@ import java.util.Random;
  * @author Reza.sh
  *
  */
-public class FileProcess {
+public class TextProcess {
 
 	/**
 	 * This method returns the output transformed string
 	 * 
-	 * @param fileInfo
+	 * @param textInfo
 	 * @return String
 	 * @throws IOException
 	 */
-	public String markovTransform(TextInfo fileInfo) throws Exception {
+	public String markovTransform(TextInfo textInfo) throws Exception {
 
 		try {
 			Random r = new Random();
-			Map<String, List<String>> dict = generatePrefixes(fileInfo);
+			Map<String, List<String>> dict = generatePrefixes(textInfo);
 
 			// we can send the prefix from user
 			// for now the prefix is a random String from the map
 			String prefix = getPrefix(dict);
 
 			List<String> output = new ArrayList<String>(Arrays.asList(prefix.split(" ")));
-			int outputSize = fileInfo.getOutputSize();
+			int outputSize = textInfo.getOutputSize();
 			int n = 0;
 			while (true) {
 				List<String> suffix = dict.get(prefix);
@@ -50,7 +50,7 @@ public class FileProcess {
 				if (output.size() >= outputSize)
 					return output.stream().limit(outputSize).reduce("", (a, b) -> a + " " + b);
 				n++;
-				prefix = output.stream().skip(n).limit(fileInfo.getKeySize()).reduce("", (a, b) -> a + " " + b).trim();
+				prefix = output.stream().skip(n).limit(textInfo.getKeySize()).reduce("", (a, b) -> a + " " + b).trim();
 			}
 		} catch (Exception e) {
 			throw e;
@@ -66,12 +66,12 @@ public class FileProcess {
 	 * @return Map<String, List<String>>
 	 * @throws IOException
 	 */
-	public Map<String, List<String>> generatePrefixes(TextInfo fileInfo) throws IOException {
+	public Map<String, List<String>> generatePrefixes(TextInfo textInfo) throws IOException {
 
-		String[] words = FileUtils.getWordsOfFile(fileInfo.getPath());
+		String[] words = TextUtils.getWordsOfFile(textInfo.getPath());
 		Map<String, List<String>> dict = new HashMap<String, List<String>>();
 
-		int keySize = fileInfo.getKeySize();
+		int keySize = textInfo.getKeySize();
 
 		for (int i = 0; i < (words.length - keySize); ++i) {
 			StringBuilder key = new StringBuilder(words[i]);
@@ -97,7 +97,7 @@ public class FileProcess {
 	 * @param dict
 	 * @return String
 	 */
-	private String getPrefix(Map<String, List<String>> dict) {
+	protected String getPrefix(Map<String, List<String>> dict) {
 		Random r = new Random();
 		int rn = r.nextInt(dict.size());
 		return (String) dict.keySet().toArray()[rn];

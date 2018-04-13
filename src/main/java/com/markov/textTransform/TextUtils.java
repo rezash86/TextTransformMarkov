@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author Reza.sh
  *
  */
-public class FileUtils {
+public class TextUtils {
 
 	/**
 	 * This method returs all the words in a text file
@@ -36,7 +36,7 @@ public class FileUtils {
 	 */
 	public static TextInfo getInput() {
 		Scanner reader = new Scanner(System.in);
-		TextInfo fileInfo = new TextInfo();
+		TextInfo textInfo = new TextInfo();
 
 		try {
 
@@ -51,12 +51,12 @@ public class FileUtils {
 
 			System.out.println("Enter the size of the output : ");
 			int outputSize = reader.nextInt();
-			fileInfo.setKeySize(keySize);
-			fileInfo.setOutputSize(outputSize);
-			fileInfo.setPath(path);
+			textInfo.setKeySize(keySize);
+			textInfo.setOutputSize(outputSize);
+			textInfo.setPath(path);
 
-			ValidationInput.getInstance().validateOutputSize(fileInfo);
-			return fileInfo;
+			ValidationInput.getInstance().validateOutputSize(textInfo);
+			return textInfo;
 		}
 
 		catch (Exception exc) {

@@ -32,14 +32,14 @@ public class ValidationInput {
 	
 	/**
 	 * 
-	 * @param fileInfo
+	 * @param textInfo
 	 * @return TRUE if all the validations are TRUE
 	 * @throws IOException
 	 * @throws Exception
 	 */
-	public boolean validateFileInfo(TextInfo fileInfo) throws IOException, Exception {
-		return validatePath(fileInfo.getPath()) && validateKeySize(fileInfo.getKeySize()) && 
-				validateOutputSize(fileInfo);
+	public boolean validateTextInfo(TextInfo textInfo) throws IOException, Exception {
+		return validatePath(textInfo.getPath()) && validateKeySize(textInfo.getKeySize()) && 
+				validateOutputSize(textInfo);
 	}
 	
 	/**
@@ -70,14 +70,14 @@ public class ValidationInput {
 	
 	/**
 	 * 
-	 * @param fileInfo
+	 * @param textInfo
 	 * @return true if the size is in the range
 	 * @throws IOException
 	 */
-	public boolean validateOutputSize(TextInfo fileInfo) throws IOException {
-		String[] words = FileUtils.getWordsOfFile(fileInfo.getPath());
+	public boolean validateOutputSize(TextInfo textInfo) throws IOException {
+		String[] words = TextUtils.getWordsOfFile(textInfo.getPath());
 
-		if (fileInfo.getOutputSize() < fileInfo.getKeySize() || fileInfo.getOutputSize() >= words.length) {
+		if (textInfo.getOutputSize() < textInfo.getKeySize() || textInfo.getOutputSize() >= words.length) {
 			throw new IllegalArgumentException("Output size is out of range");
 		}
 		return true;

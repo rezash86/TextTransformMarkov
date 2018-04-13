@@ -22,7 +22,6 @@ public class TextInfo {
 
 	
 	public TextInfo() {
-		
 	}
 	
 	public TextInfo(String path, int keySize, int outputSize) {
