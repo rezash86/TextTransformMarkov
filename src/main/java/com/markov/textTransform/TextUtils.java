@@ -6,6 +6,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * This class is being used for doing some utility actions
  * 
@@ -14,6 +17,8 @@ import java.util.Scanner;
  */
 public class TextUtils {
 
+	public static final Logger logger = LoggerFactory.getLogger(TextUtils.class);
+	
 	/**
 	 * This method returs all the words in a text file
 	 * 
@@ -60,7 +65,7 @@ public class TextUtils {
 		}
 
 		catch (Exception exc) {
-			System.out.println(exc.getMessage());
+			logger.error(exc.getMessage());
 		}
 
 		finally {

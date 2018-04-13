@@ -9,6 +9,9 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Random;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * This class does the process in the input text file
  * 
@@ -17,6 +20,8 @@ import java.util.Random;
  */
 public class TextProcess {
 
+	public static final Logger logger = LoggerFactory.getLogger(TextProcess.class);
+	
 	/**
 	 * This method returns the output transformed string
 	 * 
@@ -52,8 +57,9 @@ public class TextProcess {
 				n++;
 				prefix = output.stream().skip(n).limit(textInfo.getKeySize()).reduce("", (a, b) -> a + " " + b).trim();
 			}
-		} catch (Exception e) {
-			throw e;
+		} catch (Exception exc) {
+			logger.error(exc.getMessage());
+			throw exc;
 		}
 
 	}

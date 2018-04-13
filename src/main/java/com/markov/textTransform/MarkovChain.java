@@ -2,10 +2,18 @@ package com.markov.textTransform;
 
 import java.io.IOException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class MarkovChain {
 
+	public static final Logger logger = LoggerFactory.getLogger(MarkovChain.class);
+	
 	// The beginning of the project
 	public static void main(String[] args) {
+
+		
+		
 		try {
 			TextInfo input = TextUtils.getInput();
 			if(input != null) {
@@ -18,9 +26,9 @@ public class MarkovChain {
 				
 			} 
 		}catch (IOException exc) {
-			System.out.println(exc.getMessage());
+			logger.error(exc.getMessage());
 		} catch (Exception exc) {
-			System.out.println(exc.getMessage());
+			logger.error(exc.getMessage());
 		}
 	}
 }
